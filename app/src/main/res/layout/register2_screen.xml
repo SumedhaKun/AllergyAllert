@@ -38,17 +38,132 @@
             app:srcCompat="@drawable/logo" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
-            android:layout_width="323dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/allergy1"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
             android:ems="10"
             android:hint="Allergy"
             android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintHorizontal_bias="0.158"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.402" />
+            app:layout_constraintVertical_bias="0.006" />
+
+        <EditText
+            android:id="@+id/allergy5"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.806"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.006" />
+
+        <EditText
+            android:id="@+id/allergy6"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.806"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.202" />
+
+        <EditText
+            android:id="@+id/allergy7"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.806"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.397" />
+
+        <EditText
+            android:id="@+id/allergy8"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="56dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.806"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.585" />
+
+        <EditText
+            android:id="@+id/allergy2"
+            android:visibility="gone"
+            android:layout_width="150dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="112dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.004" />
+
+        <EditText
+            android:id="@+id/allergy3"
+            android:visibility="gone"
+            android:layout_width="151dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="168dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.011" />
+
+        <EditText
+            android:id="@+id/allergy4"
+            android:visibility="gone"
+            android:layout_width="153dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="224dp"
+            android:ems="10"
+            android:hint="Allergy"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/Continue"
@@ -59,37 +174,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.961" />
+            app:layout_constraintVertical_bias="0.997" />
+
 
         <EditText
             android:id="@+id/number_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="184dp"
+            android:layout_height="49dp"
             android:ems="10"
-            android:hint="Number of Allergies"
+            android:hint=" Number Of Allergies"
             android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintHorizontal_bias="0.446"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.548" />
+            app:layout_constraintVertical_bias="0.52" />
 
-        <TextView
-            android:id="@+id/num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="188dp"
-            android:text=""
+        <Button
+            android:id="@+id/check"
+            android:layout_width="44dp"
+            android:layout_height="46dp"
+            android:text="✓"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-            app:layout_constraintVertical_bias="0.043" />
-
-
-
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toEndOf="@+id/number_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.521" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

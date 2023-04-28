@@ -8,7 +8,7 @@
     tools:context=".HomeScreen">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/profile_button"
         android:layout_width="59dp"
         android:layout_height="61dp"
         android:layout_marginStart="31dp"

@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,11 +29,25 @@ public class HomeScreen extends AppCompatActivity{
     Button back_button;
     Button goButton;
     EditText food;
+    Button profile;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        email=getIntent().getStringExtra("mail");
         setContentView(R.layout.home_screen);
+        profile=(Button) findViewById(R.id.profile_button);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(HomeScreen.this,ProfileScreen.class);
+                i.putExtra("email",email);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
         food=(EditText) findViewById(R.id.editTextTextFoodName);
         back_button=(Button) findViewById(R.id.back_login);
         goButton=(Button) findViewById(R.id.goButton);

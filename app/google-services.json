@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71013003880",
+    "project_id": "allergy-allert",
+    "storage_bucket": "allergy-allert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71013003880:android:7fb2f048ea7b70a62d41dd",
+        "android_client_info": {
+          "package_name": "com.example.allergy_allert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71013003880-5kopc925sje31dclf5i6c3653vfrmjuc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXkBcfVevHviYbVUJIhiAUc7YpfRmmmyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71013003880-5kopc925sje31dclf5i6c3653vfrmjuc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

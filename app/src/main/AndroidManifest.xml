@@ -30,6 +30,7 @@
         <activity android:name=".ResourceScreen"></activity>
         <activity android:name=".Register2Screen"></activity>
         <activity android:name=".RegisterScreen"></activity>
+        <activity android:name=".LoginScreen"></activity>
 
     </application>
 

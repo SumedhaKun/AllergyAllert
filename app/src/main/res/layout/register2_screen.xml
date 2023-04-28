@@ -11,7 +11,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/profile_button"
             android:layout_width="59dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="31dp"
@@ -166,7 +166,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/Continue"
+            android:id="@+id/register2_button"
             android:layout_width="375dp"
             android:layout_height="52dp"
             android:text="Continue"

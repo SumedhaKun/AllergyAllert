@@ -56,15 +56,9 @@ public class LoginScreen extends AppCompatActivity {
         });
         log_email.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
                 try{
@@ -72,6 +66,7 @@ public class LoginScreen extends AppCompatActivity {
                 }catch (Exception e){}
             }
         });
+
         log_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,9 +86,6 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
     private void loginUser(){
-
-
-
         mAuth.signInWithEmailAndPassword(email,psw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

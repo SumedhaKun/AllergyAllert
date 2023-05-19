@@ -19,6 +19,19 @@
         app:layout_constraintVertical_bias="0.202"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageButton
+        android:id="@+id/imagebutton"
+        android:layout_width="87dp"
+        android:layout_height="89dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039"
+        app:srcCompat="@drawable/logo" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="201dp"

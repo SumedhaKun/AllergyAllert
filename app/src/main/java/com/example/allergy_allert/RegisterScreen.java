@@ -11,6 +11,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.regex.Pattern;
+
 public class RegisterScreen extends AppCompatActivity {
     Button back_button;
     Button continue_button;
@@ -20,6 +22,7 @@ public class RegisterScreen extends AppCompatActivity {
     Editable psw;
     EditText name;
     Editable user_name;
+    String confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class RegisterScreen extends AppCompatActivity {
         setContentView(R.layout.register_screen);
 
         name=(EditText) findViewById(R.id.user_name);
+        EditText confirm_psw = (EditText) findViewById(R.id.confirm_psw);
         name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -58,21 +62,44 @@ public class RegisterScreen extends AppCompatActivity {
         password_entry =(EditText) findViewById(R.id.Password);
         password_entry.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
-                try{
-                    psw=s;
-                } catch (Exception e){}
+                try {
+                    psw = s;
+                } catch (Exception e) {
+                }
+            }
+        });
+
+        confirm_psw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                try {
+                    confirm = s.toString();
+                } catch (Exception e) {
+                }
             }
         });
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(RegisterScreen.this, MainActivity.class);
+                Intent i = new Intent(RegisterScreen.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -80,14 +107,17 @@ public class RegisterScreen extends AppCompatActivity {
         continue_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(psw.toString().length()<6){
-                    errorMessage();
-                }
-                else{
-                    Intent i=new Intent(RegisterScreen.this, Register2Screen.class);
-                    i.putExtra("mail",email.toString());
-                    i.putExtra("psw",psw.toString());
-                    i.putExtra("name",user_name.toString());
+                if (psw.toString().length() < 6) {
+                    errorMessage("Your password must be at least 6 characters.");
+                } else if (!psw.toString().equals(confirm)) {
+                    errorMessage("Passwords don't match");
+                } else if (!isValid(email.toString())) {
+                    errorMessage("Your email is invalid");
+                } else {
+                    Intent i = new Intent(RegisterScreen.this, Register2Screen.class);
+                    i.putExtra("mail", email.toString());
+                    i.putExtra("psw", psw.toString());
+                    i.putExtra("name", user_name.toString());
                     startActivity(i);
                     finish();
                 }
@@ -95,11 +125,24 @@ public class RegisterScreen extends AppCompatActivity {
             }
         });
     }
-    public AlertDialog errorMessage(){
+
+    public AlertDialog errorMessage(String message) {
         return new AlertDialog.Builder(this)
-                .setMessage("Your password has to be at least 6 characters")
-                .setTitle("Password Issue")
+                .setMessage(message)
+                .setTitle("Registration Issue")
                 .setNegativeButton(android.R.string.no, null)
                 .show();
+    }
+
+    public boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 }

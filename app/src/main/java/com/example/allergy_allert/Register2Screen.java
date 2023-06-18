@@ -55,6 +55,7 @@ public class Register2Screen extends AppCompatActivity{
         pswd=getIntent().getStringExtra("psw");
         user_name=getIntent().getStringExtra("name");
         registerButton=(Button) findViewById(R.id.register2_button);
+
         //Initializing Firebase and Firestore
         mAuth=FirebaseAuth.getInstance();
         firestore=FirebaseFirestore.getInstance();
@@ -230,14 +231,15 @@ public class Register2Screen extends AppCompatActivity{
                             System.out.println("SUCCESS, profile created for "+uID);
                         }
                     });
-                    Intent i=new Intent(Register2Screen.this, ProfileScreen.class);
+                    Intent i = new Intent(Register2Screen.this, MainActivity.class);
                     i.putExtra("mail",email);
                     i.putExtra("name",user_name);
                     startActivity(i);
 
                 }
-                else{
-                    Toast.makeText(Register2Screen.this,"Registration error",Toast.LENGTH_SHORT).show();
+                else {
+                    System.out.println("DIDNT WORK");
+                    Toast.makeText(Register2Screen.this, "Registration error", Toast.LENGTH_SHORT).show();
                 }
             }
         });

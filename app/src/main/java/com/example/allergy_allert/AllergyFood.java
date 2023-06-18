@@ -1,13 +1,4 @@
 package com.example.allergy_allert;
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -15,13 +6,20 @@ import java.util.Locale;
 public class AllergyFood {
     private Boolean isSafe;
     private String foodName;
+    private ArrayList<String> problems = new ArrayList<>();
 
     public String getIngredients() {
         return ingredients;
     }
 
     private String ingredients;
-    private ArrayList<String> allergies=new ArrayList<>();
+
+    public void setAllergies(ArrayList<String> allergies) {
+        this.allergies = allergies;
+
+    }
+
+    public static ArrayList<String> allergies = new ArrayList<>();
     private Integer num_allergies;
 
     public void setNot_a_sig(String not_a_sig) {
@@ -33,45 +31,21 @@ public class AllergyFood {
     }
 
     private String not_a_sig;
-    public AllergyFood(){
-        DocumentReference ref;
-        FirebaseAuth mAuth;
-        mAuth=FirebaseAuth.getInstance();
-        FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-        FirebaseUser user=mAuth.getCurrentUser();
-        String uID=mAuth.getCurrentUser().getUid();
-        ref=firestore.collection("users").document(uID);
-        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    DocumentSnapshot doc=task.getResult();
-                    if (doc.exists()) {
-                        num_allergies=Integer.parseInt(doc.getData().get("number of allergies").toString());
-                        for(int i=0; i<num_allergies; i++){
-                            String allergy=doc.getData().get("allergy"+(i+1)).toString();
-                            allergies.add(allergy);
-                        }
 
-                    } else {
-                        System.out.println("No such document");
-                    }
-                }
-                else{
-                    System.out.println("get failed with "+task.getException());
-                }
-            }
-        });
+    public AllergyFood() {
+        problems.clear();
     }
 
-    public Boolean getSafety(){
-        isSafe=true;
-        for(String allergy: allergies){
-            if(getIngredients().contains(allergy.toUpperCase(Locale.ROOT)) || getFoodName().contains(allergy.toUpperCase(Locale.ROOT))){
-                isSafe=false;
-            }
-            if(getNot_a_sig().contains(allergy)){
-                isSafe=false;
+
+    public Boolean getSafety() {
+        isSafe = true;
+        for (String allergy : allergies) {
+            if (getIngredients().toUpperCase(Locale.ROOT).contains(allergy.toUpperCase(Locale.ROOT)) || getFoodName().toUpperCase(Locale.ROOT).contains(allergy.toUpperCase(Locale.ROOT))) {
+                isSafe = false;
+                if (!problems.contains(allergy)) {
+                    problems.add(allergy);
+                }
+
             }
         }
         return isSafe;
@@ -80,6 +54,7 @@ public class AllergyFood {
     public void setFoodName(String foodName) {
         this.foodName = foodName;
     }
+
     public String getFoodName() {
         return foodName;
     }
@@ -88,7 +63,7 @@ public class AllergyFood {
         this.ingredients = ingredients;
     }
 
-    public ArrayList<String> getAllergies(){
+    public ArrayList<String> getAllergies() {
         return allergies;
 
     }
@@ -96,13 +71,18 @@ public class AllergyFood {
 
     @Override
     public String toString() {
-        isSafe=getSafety();
-        return "AllergyFood{" +
-                "isSafe=" + isSafe +
-                ", foodName='" + foodName + '\'' +
-                ", ingredients='" + ingredients + '\'' +
-                ", allergies=" + allergies +
-                ", num_allergies=" + num_allergies +
-                '}';
+        getSafety();
+        String problem = "";
+        for (String prob : problems) {
+            problem += " " + prob;
+        }
+        String safe;
+        if (isSafe) {
+            safe = "SAFE. ";
+        } else {
+            safe = "UNSAFE. Problem: " + problem;
+        }
+        return foodName.substring(0, 1) + foodName.substring(1).toLowerCase(Locale.ROOT) +
+                ": " + safe;
     }
 }

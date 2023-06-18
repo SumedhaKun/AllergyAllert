@@ -71,9 +71,6 @@ public class LoginScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginUser();
-                Intent i=new Intent(LoginScreen.this,HomeScreen.class);
-                startActivity(i);
-                finish();
             }
         });
         reg_button.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +88,11 @@ public class LoginScreen extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(LoginScreen.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(LoginScreen.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                } else {
+                    Toast.makeText(LoginScreen.this, "Error Logging In", Toast.LENGTH_SHORT).show();
                 }
             }
         });

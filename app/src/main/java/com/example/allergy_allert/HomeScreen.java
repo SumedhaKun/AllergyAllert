@@ -153,7 +153,7 @@ public class HomeScreen extends AppCompatActivity {
                     public void run() {
                         URL url = null;
                         try {
-                            url = new URL("http://10.0.2.2:1234/" + entered_food.toUpperCase(Locale.ROOT));
+                            url = new URL("http://3.101.54.229:8080/" + entered_food.toUpperCase(Locale.ROOT));
 
                         } catch (MalformedURLException e) {
                             e.printStackTrace();

@@ -3,9 +3,8 @@ This is an android mobile application that categorizes food as unsafe/safe based
 
 ## [See Video Demo](https://drive.google.com/file/d/1zubp-MPir5gTNzv7N5OT4tPElEdszW_l/view?usp=sharing)
 
-## Server
+## [Server](https://github.com/SumedhaKun/allergy_allert_server)
 The server accesses the datasets and returns the safety status of entered food & its ingredients.
-[Server Repository](https://github.com/SumedhaKun/allergy_allert_server)
 
 ## Tools Used:
 - Java
